@@ -9,7 +9,7 @@ RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.lis
  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 \
  && apt-get update
 
-RUN echo yes | apt-get install -y oracle-java8-installer && update-java-alternatives -s java-8-oracle
+RUN echo yes | apt-get install -y oracle-java9-installer && update-java-alternatives -s java-9-oracle
 
 RUN apt-get install -y sbt nodejs npm
 
