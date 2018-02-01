@@ -25,5 +25,3 @@ RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype
  && cd $OLDPWD \
  && rm -fr /tmp/phantom*
 
-RUN sbt -help || true
-
