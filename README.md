@@ -2,7 +2,7 @@
 
 Ubuntu 17.10 docker image with pre-installed:
 
-- java 9 oracle jdk
+- java 8 oracle jdk
 - sbt
 - elm
 - elm-github-install
