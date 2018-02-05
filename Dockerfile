@@ -13,7 +13,7 @@ RUN echo yes | apt-get install -y oracle-java8-installer && update-java-alternat
 
 RUN apt-get install -y sbt nodejs npm
 
-RUN npm install -g elm elm-github-install newman
+RUN npm install -g elm elm-test elm-github-install newman
 
 RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
  && export PHANTOM_JS="phantomjs-2.1.1-linux-x86_64" \
