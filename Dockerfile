@@ -11,7 +11,7 @@ RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.lis
 
 RUN echo yes | apt-get install -y oracle-java8-installer && update-java-alternatives -s java-8-oracle
 
-RUN apt-get install -y sbt nodejs npm
+RUN apt-get install -y sbt scala nodejs npm
 
 RUN npm install -g elm elm-test elm-github-install newman
 
