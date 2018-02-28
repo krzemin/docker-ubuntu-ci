@@ -1,13 +1,17 @@
 FROM ubuntu:17.10
 MAINTAINER Piotr Krzemiński (pio.krzeminski@gmail.com)
 
-RUN apt-get update && apt-get install -y dirmngr ca-certificates
+RUN apt-get update && apt-get install -y dirmngr ca-certificates wget
 
 RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list \
  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2EE0EA64E40A89B84B2DF73499E82A75642AC823 \ 
  && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu artful main" | tee /etc/apt/sources.list.d/webupd8team-java.list \
  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 \
+ && echo "deb http://apt.postgresql.org/pub/repos/apt/ zesty-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \
+ && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
  && apt-get update
+
+RUN apt-get install -y postgresql-10
 
 RUN echo yes | apt-get install -y oracle-java8-installer && update-java-alternatives -s java-8-oracle
 
