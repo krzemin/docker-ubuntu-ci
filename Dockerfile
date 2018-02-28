@@ -11,9 +11,12 @@ RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.lis
  && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
  && apt-get update
 
-RUN apt-get install -y postgresql-10
+RUN apt-get install -y postgresql-10 \
+ && echo "local all postgres trust" > /etc/postgresql/10/main/pg_hba.conf \
+ && echo "host all postgres 127.0.0.1/32 trust" >> /etc/postgresql/10/main/pg_hba.conf
 
-RUN echo yes | apt-get install -y oracle-java8-installer && update-java-alternatives -s java-8-oracle
+RUN echo yes | apt-get install -y oracle-java8-installer \
+ && update-java-alternatives -s java-8-oracle
 
 RUN apt-get install -y sbt scala nodejs npm
 
@@ -29,3 +32,7 @@ RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype
  && cd $OLDPWD \
  && rm -fr /tmp/phantom*
 
+RUN wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.0.7/flyway-commandline-5.0.7-linux-x64.tar.gz -O /tmp/flyway.tar.gz \
+ && tar -zxvf /tmp/flyway.tar.gz -C /usr/local/share \
+ && ln -s /usr/local/share/flyway-5.0.7/flyway /usr/local/bin/flyway \
+ && rm -f /tmp/flyway.tar.gz
