@@ -13,7 +13,7 @@ RUN apt-get install -y postgresql-10 \
  && echo "local all postgres trust" > /etc/postgresql/10/main/pg_hba.conf \
  && echo "host all postgres 127.0.0.1/32 trust" >> /etc/postgresql/10/main/pg_hba.conf
 
-RUN apt-get install -y openjdk-9-jdk-headless && update-java-alternatives -s java-1.9.0-openjdk-amd64
+RUN apt-get install -y openjdk-9-jdk-headless && update-java-alternatives -s java-1.9.0-openjdk-amd64 && update-ca-certificates -f
 
 RUN apt-get install -y sbt scala nodejs npm
 
