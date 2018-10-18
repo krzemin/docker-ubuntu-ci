@@ -1,8 +1,9 @@
 # docker-ubuntu-scala-elm-phantom
 
-Ubuntu 17.10 docker image with pre-installed:
+Ubuntu 18.04 docker image with pre-installed:
 
-- java 9 open jdk
+- postgresql 10
+- java 11 open jdk
 - sbt
 - elm
 - elm-github-install

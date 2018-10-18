@@ -1,21 +1,19 @@
-FROM ubuntu:17.10
+FROM ubuntu:18.04
 MAINTAINER Piotr Krzemiński (pio.krzeminski@gmail.com)
 
-RUN apt-get update && apt-get install -y dirmngr ca-certificates wget
+RUN apt-get update && apt-get install -y dirmngr ca-certificates wget curl jq
 
 RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list \
  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2EE0EA64E40A89B84B2DF73499E82A75642AC823 \ 
- && echo "deb http://apt.postgresql.org/pub/repos/apt/ zesty-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \
- && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
  && apt-get update
 
 RUN apt-get install -y postgresql-10 \
  && echo "local all postgres trust" > /etc/postgresql/10/main/pg_hba.conf \
  && echo "host all postgres 127.0.0.1/32 trust" >> /etc/postgresql/10/main/pg_hba.conf
 
-RUN apt-get install -y openjdk-9-jdk-headless && update-java-alternatives -s java-1.9.0-openjdk-amd64 && update-ca-certificates -f
+RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s java-1.11.0-openjdk-amd64 && update-ca-certificates -f
 
-RUN apt-get install -y sbt scala nodejs npm
+RUN apt-get install -y sbt nodejs npm
 
 RUN npm install -g elm@0.18.0 elm-github-install newman
 
