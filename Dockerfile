@@ -32,3 +32,5 @@ RUN wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.2.0/fl
  && ln -s /usr/local/share/flyway-5.2.0/flyway /usr/local/bin/flyway \
  && rm -f /tmp/flyway.tar.gz
 
+RUN wget https://github.com/antew/node-elm-compiler/releases/download/elm-make-files/elm-make.linux.x64 -O /usr/bin/elm-make-rts && chmod +x /usr/bin/elm-make-rts
+
