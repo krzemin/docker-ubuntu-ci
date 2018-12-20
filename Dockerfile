@@ -29,7 +29,7 @@ RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype
 
 RUN wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.2.4/flyway-commandline-5.2.4-linux-x64.tar.gz -O /tmp/flyway.tar.gz \
  && tar -zxvf /tmp/flyway.tar.gz -C /usr/local/share \
- && ln -s /usr/local/share/flyway-5.4.0/flyway /usr/local/bin/flyway \
+ && ln -s /usr/local/share/flyway-5.2.4/flyway /usr/local/bin/flyway \
  && rm -f /tmp/flyway.tar.gz
 
 RUN wget https://github.com/antew/node-elm-compiler/releases/download/elm-make-files/elm-make.linux.x64 -O /usr/bin/elm-make-rts && chmod +x /usr/bin/elm-make-rts
