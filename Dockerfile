@@ -15,7 +15,7 @@ RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s ja
 
 RUN apt-get install -y sbt nodejs npm
 
-RUN npm install -g elm@0.18.0 elm-github-install newman
+RUN npm install -g elm@0.18.0 elm-github-install newman npm
 
 RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
  && export PHANTOM_JS="phantomjs-2.1.1-linux-x86_64" \
@@ -27,10 +27,12 @@ RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype
  && cd $OLDPWD \
  && rm -fr /tmp/phantom*
 
-RUN wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.2.0/flyway-commandline-5.2.0-linux-x64.tar.gz -O /tmp/flyway.tar.gz \
+RUN wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.2.4/flyway-commandline-5.2.4-linux-x64.tar.gz -O /tmp/flyway.tar.gz \
  && tar -zxvf /tmp/flyway.tar.gz -C /usr/local/share \
- && ln -s /usr/local/share/flyway-5.2.0/flyway /usr/local/bin/flyway \
+ && ln -s /usr/local/share/flyway-5.4.0/flyway /usr/local/bin/flyway \
  && rm -f /tmp/flyway.tar.gz
 
 RUN wget https://github.com/antew/node-elm-compiler/releases/download/elm-make-files/elm-make.linux.x64 -O /usr/bin/elm-make-rts && chmod +x /usr/bin/elm-make-rts
+
+RUN rm -fr /tmp/*
 
