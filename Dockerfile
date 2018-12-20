@@ -15,7 +15,7 @@ RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s ja
 
 RUN apt-get install -y sbt nodejs npm
 
-RUN npm install -g elm@0.18.0 elm-github-install newman npm
+RUN npm install -g elm@0.18.0 elm-github-install elm-format newman npm
 
 RUN apt-get install -y build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev \
  && export PHANTOM_JS="phantomjs-2.1.1-linux-x86_64" \
