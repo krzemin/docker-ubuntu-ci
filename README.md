@@ -1,12 +1,12 @@
-# docker-ubuntu-scala-elm-phantom
+# docker-ubuntu-ci
 
-Ubuntu 18.04 docker image with pre-installed:
+Ubuntu 18.10 docker image with pre-installed:
 
 - postgresql 10
 - java 11 open jdk
 - sbt
-- elm
-- elm-github-install
-- phantomjs
-- newman (postman collection cli runner)
+- npm
+- flyway
+
+Used for running CI builds.
 
