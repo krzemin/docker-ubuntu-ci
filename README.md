@@ -7,6 +7,7 @@ Ubuntu 18.10 docker image with pre-installed:
 - sbt
 - npm
 - flyway
+- docker-compose
 
 Used for running CI builds.
 

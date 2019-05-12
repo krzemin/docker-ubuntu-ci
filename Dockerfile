@@ -15,6 +15,8 @@ RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s ja
 
 RUN apt-get install -y sbt nodejs npm
 
+RUN apt-get install -y docker-compose
+
 RUN wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/5.2.4/flyway-commandline-5.2.4-linux-x64.tar.gz | tar xvz && ln -s `pwd`/flyway-5.2.4/flyway /usr/local/bin 
 
 RUN rm -fr /tmp/* /usr/share/man* /usr/share/doc*
