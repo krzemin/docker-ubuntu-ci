@@ -15,9 +15,6 @@ RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s ja
 
 RUN apt-get install -y sbt nodejs npm
 
-# cypress.io deps: https://docs.cypress.io/guides/guides/continuous-integration.html#Dependencies
-RUN apt-get install -y xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
-
 RUN curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
  && chmod +x /usr/local/bin/docker-compose
 
