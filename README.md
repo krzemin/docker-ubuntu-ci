@@ -4,7 +4,7 @@ Ubuntu 18.10 docker image with pre-installed:
 
 - postgresql 10
 - java 11 open jdk
-- sbt
+- mill
 - npm
 - flyway
 - docker-compose
