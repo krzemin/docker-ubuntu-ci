@@ -13,7 +13,16 @@ RUN apt-get install -y postgresql-10 \
 
 RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s java-1.11.0-openjdk-amd64 && update-ca-certificates -f
 
-RUN apt-get install -y sbt nodejs npm
+RUN apt-get install -y nodejs npm
+
+ENV MILL_VERSION 0.5.0
+
+RUN \
+  curl -L -o /usr/local/bin/mill https://github.com/lihaoyi/mill/releases/download/$MILL_VERSION/$MILL_VERSION && \
+  chmod +x /usr/local/bin/mill && \
+  touch build.sc && \
+  mill -i resolve _ && \
+  rm build.sc
 
 RUN curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
  && chmod +x /usr/local/bin/docker-compose
