@@ -14,9 +14,9 @@ ENV MILL_VERSION 0.5.0
 RUN \
   curl -L -o /usr/local/bin/mill https://github.com/lihaoyi/mill/releases/download/$MILL_VERSION/$MILL_VERSION && \
   chmod +x /usr/local/bin/mill && \
-  touch build.sc && \
-  mill -i resolve _ && \
-  rm build.sc
+#  touch build.sc && \
+#  mill -i resolve _ && \
+#  rm build.sc
 
 RUN apt-get install -y postgresql-10 \
  && echo "local all postgres trust" > /etc/postgresql/10/main/pg_hba.conf \
