@@ -1,13 +1,13 @@
 FROM ubuntu:18.10
 MAINTAINER Piotr Krzemiński (pio.krzeminski@gmail.com)
 
-curl -sL https://deb.nodesource.com/setup_10.x | bash -
-
 RUN apt-get update && apt-get install -y dirmngr ca-certificates wget curl jq netcat
 
-RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list \
- && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2EE0EA64E40A89B84B2DF73499E82A75642AC823 \ 
- && apt-get update
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+
+#RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list \
+# && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2EE0EA64E40A89B84B2DF73499E82A75642AC823 \ 
+# && apt-get update
 
 RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s java-1.11.0-openjdk-amd64 && update-ca-certificates -f
 
