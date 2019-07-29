@@ -1,6 +1,8 @@
 FROM ubuntu:18.10
 MAINTAINER Piotr Krzemiński (pio.krzeminski@gmail.com)
 
+curl -sL https://deb.nodesource.com/setup_10.x | bash -
+
 RUN apt-get update && apt-get install -y dirmngr ca-certificates wget curl jq netcat
 
 RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list \
