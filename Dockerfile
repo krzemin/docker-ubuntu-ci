@@ -10,7 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
 
 RUN apt-get install -y openjdk-11-jdk-headless && update-java-alternatives -s java-1.11.0-openjdk-amd64 && update-ca-certificates -f
 
-ENV MILL_VERSION 0.5.0
+ENV MILL_VERSION 0.5.1
 
 RUN \
   curl -L -o /usr/local/bin/mill https://github.com/lihaoyi/mill/releases/download/$MILL_VERSION/$MILL_VERSION && \
